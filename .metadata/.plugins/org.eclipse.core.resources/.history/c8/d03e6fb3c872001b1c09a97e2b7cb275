@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+public class KeypadCombinations {
+
+	public static List<String> letterCombinations(String digits) {
+		
+		List<String> res = new ArrayList<String>();
+        HashMap<Integer, ArrayList<Character>> keyMap = new HashMap<>();
+        
+        keyMap.put(2, new ArrayList<>(Arrays.asList('a', 'b', 'c')));
+        keyMap.put(3, new ArrayList<>(Arrays.asList('d', 'e', 'f')));
+        keyMap.put(4, new ArrayList<>(Arrays.asList('g', 'h', 'i')));
+        keyMap.put(5, new ArrayList<>(Arrays.asList('j', 'k', 'l')));
+        keyMap.put(6, new ArrayList<>(Arrays.asList('m', 'n', 'o')));
+        keyMap.put(7, new ArrayList<>(Arrays.asList('p', 'q', 'r', 's')));
+        keyMap.put(8, new ArrayList<>(Arrays.asList('t', 'u', 'v')));
+        keyMap.put(9, new ArrayList<>(Arrays.asList('w', 'x', 'y', 'z')));
+        
+        System.out.println(keyMap);
+        return res;
+    }
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String num = "23";
+		System.out.println(letterCombinations(num));
+	}
+
+}
