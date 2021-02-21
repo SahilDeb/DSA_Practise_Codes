@@ -1,0 +1,31 @@
+package dpTopics;
+
+public class Knapsack01 {
+
+	static int[][] dp;
+	public static int knapsack(int[] weight, int[] value, int capacity, int index) {
+		if (dp[capacity][index] != 0) return dp[capacity][index];
+		if (capacity == 0) return 0;
+		if (index >= weight.length) return 0;
+		if (capacity < weight[index]) return knapsack(weight, value, capacity, index+1);
+		
+		// scenario including me
+		int ans1 = knapsack(weight, value, capacity - weight[index], index+1) + value[index];
+		// scenario excluding me
+		int ans2 = knapsack(weight, value, capacity, index+1);
+		
+		dp[capacity][index] = Math.max(ans1, ans2);
+		return dp[capacity][index];
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] weight = {2, 3, 1, 4};
+		int[] value = {4, 5, 3, 7};
+		int capacity = 5;
+		dp = new int[capacity+1][weight.length];
+		System.out.println(knapsack(weight, value, capacity,0));
+
+	}
+
+}

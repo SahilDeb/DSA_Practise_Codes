@@ -1,0 +1,29 @@
+
+public class PrefixSum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[] = {-2, -3, 4, -1, -2, 1, 5, -3};
+		int prefixSum[] = new int[arr.length];
+		prefixSum[0] = arr[0];
+		for (int i = 1; i < arr.length; i++) {
+			prefixSum[i] += prefixSum[i-1] + arr[i];
+		}
+		
+		for (int i = 0; i < prefixSum.length; i++) {
+			System.out.print(prefixSum[i] + " ");
+		}
+		System.out.println();
+		int minPrefixSum = 0;
+		int maxPrefixSum = Integer.MIN_VALUE;
+		for (int i=0; i < arr.length; i++) {
+			maxPrefixSum = Math.max(maxPrefixSum, prefixSum[i] - minPrefixSum);
+			minPrefixSum = Math.min(minPrefixSum, prefixSum[i]);
+			System.out.println(maxPrefixSum + " " + minPrefixSum + " " + (prefixSum[i] - minPrefixSum));
+		}
+		System.out.println();
+		System.out.println(maxPrefixSum);
+		
+	}
+
+}

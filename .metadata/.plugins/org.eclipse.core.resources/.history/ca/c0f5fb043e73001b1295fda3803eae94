@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class CombinationSum {
+	static List<List<Integer>> res;
+	
+	public static List<Integer> combinationSumUtil(int[] candidates, int target) {
+		if (target == 0)
+			return new ArrayList<>();
+		if (target < 0)
+			return null;
+		
+		List<Integer> res = null;
+		for (int i = 0; i < candidates.length; i++) {
+			res = combinationSumUtil(candidates, target - candidates[i]);
+			if (res != null)
+				res.add(candidates[i]);
+		}
+		return res;
+    }
+	public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+        res = new ArrayList<List<Integer>>();
+        return res;
+        
+        
+    }
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arr = {2, 3, 6, 7};
+		combinationSum(arr, 7);
+	}
+
+}

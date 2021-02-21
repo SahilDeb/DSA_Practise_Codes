@@ -1,0 +1,29 @@
+package dpTopics;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class CanSum {
+	public static boolean canSum(int[] arr, int target) {
+		if (target == 0) return true;
+		if (target < 0) return false;
+		
+		for (int num: arr) {
+			if(canSum(arr, target-num)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arr = {5, 3};
+		System.out.println(canSum(arr, 7));
+		
+	}
+
+}
